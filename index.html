@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neko Megami | Business & Marketing Consulting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+        
+        body {
+            background-color: #0a0a1a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .gradient-bg {
+  background: linear-gradient(135deg, #001525, #022831, #066aa3);
+  background-size: 300% 300%;
+  animation: softGlow 20s ease infinite;
+}
+
+@keyframes softGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+        
+        header {
+            padding: 3rem 2rem;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 2rem;
+        }
+        .logo img {
+            filter: brightness(0) invert(1);
+            width: 150px;
+}
+
+        
+        .logo svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        h1 {
+            font-size: 5rem;
+            letter-spacing: 8px;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            color: white;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #ff00ff;
+            margin-bottom: 3rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .nav-link {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid #ff00ff;
+            color: #ff00ff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(255, 0, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(255, 0, 255, 0.2);
+        }
+        
+        .wave-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        
+        .wave-container svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+        
+        .wave-container .shape-fill {
+            fill: #071421;
+        }
+        
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+        
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #00d8ff;
+            letter-spacing: 3px;
+            font-weight: normal;
+            text-align: center;
+        }
+        
+        .features {
+            background-color: #071421;
+            position: relative;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: linear-gradient(to bottom right, #0f0f2d, #1a1045);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom right, rgba(255, 0, 255, 0.1), rgba(0, 216, 255, 0.1));
+            z-index: -1;
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .feature-card:hover::after {
+            transform: translateY(0);
+        }
+        
+        .icon {
+            color: #ff00ff;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            color: #00d8ff;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+        
+        .feature-card p {
+            color: #b8b8ff;
+            line-height: 1.6;
+        }
+        
+        .services {
+            background-color: #0a0a2e;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wave-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .wave-top svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 100px;
+        }
+        
+        .wave-top .shape-fill {
+            fill: #071421;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-item {
+            background: rgba(15, 15, 45, 0.5);
+            backdrop-filter: blur(5px);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 216, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, #ff00ff, #00d8ff);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(25, 252, 240, 0.3);
+            border-color: rgba(0, 216, 255, 0.5);
+        }
+        
+        .service-item:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-item h3 {
+            color: #ff00ff;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+        }
+        
+        .service-item p {
+            color: #b8b8ff;
+            line-height: 1.6;
+        }
+        
+        .about {
+            background: linear-gradient(45deg, #010e46, #031a3d, #12054d, #012c64);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+        
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .about p {
+            color: #b8b8ff;
+            line-height: 1.8;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(to right, #ff00ff, #a100ff);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+            margin-top: 2rem;
+        }
+        
+        .cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 0, 255, 0.3);
+            background: linear-gradient(to right, #ff33ff, #b24dff);
+        }
+        
+        .contact {
+            background-color: #070718;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            color: #00d8ff;
+        }
+        
+        .contact p {
+            color: #b8b8ff;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+        
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            background-color: rgba(15, 15, 45, 0.5);
+            border: 1px solid rgba(0, 216, 255, 0.2);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #ff00ff;
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            padding: 1rem 2rem;
+            background: linear-gradient(to right, #ff00ff, #a100ff);
+            color: white;
+            border: none;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(to right, #ff33ff, #b24dff);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 0, 255, 0.3);
+        }
+        
+        footer {
+            background-color: #050510;
+            padding: 3rem 2rem;
+            text-align: center;
+            color: #8892b0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            text-align: left;
+        }
+        
+        .footer-section h3 {
+            color: #00d8ff;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+        
+        .footer-section ul {
+            list-style-type: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-section a {
+            color: #b8b8ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #ff00ff;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(15, 15, 45, 0.5);
+            color: #ff00ff;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: #ff00ff;
+            color: #050510;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: #515d7e;
+        }
+        
+        /* Animation for the flowing effect */
+        @keyframes flow {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .flow-effect {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ff00ff, #00d8ff, transparent);
+            width: 200%;
+            bottom: 0;
+            left: -50%;
+            animation: flow 8s linear infinite;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .feature-grid, .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .footer-section {
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="gradient-bg">
+        <div class="header-content">
+            <div class="logo">
+                <img src="logo.png" alt="Neko Megami Logo" style="width: 130px; height: auto;">
+            </div>
+            <h1>NEKO MEGAMI</h1>
+            <div class="tagline"><strong>Business & Marketing Consulting</div>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Who We Are</a>
+                <a href="#services" class="nav-link">What We Do</a>
+                <a href="#about" class="nav-link">Why Neko Megami</a>
+                <a href="#contact" class="nav-link">Get In Touch</a>
+            </div>
+        </div>
+        <div class="wave-container">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <div class="flow-effect"></div>
+    </header>
+    
+    <section id="features" class="features">
+        <h2>WHO WE ARE</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="icon">😊</div>
+                <h3>Creative Rebels</h3>
+                <p>We break the mold with innovative thinking and unconventional approaches that set your brand apart from the noise.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">📊</div>
+                <h3>Data Obsessed</h3>
+                <p>Behind our creativity lies a deep obsession with metrics and analytics that drive meaningful business results.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🌊</div>
+                <h3>Flow Architects</h3>
+                <p>Like water finding its path, our strategies adapt and flow naturally with your business objectives and market dynamics.</p>
+            </div>
+        </div>
+        <div class="flow-effect"></div>
+    </section>
+    
+    <section id="services" class="services">
+        <div class="wave-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <h2>WHAT WE DO</h2>
+        <div class="services-grid">
+            <div class="service-item">
+                <h3>Marketing Strategy</h3>
+                <p>Comprehensive plans that align with your business goals and carve a distinctive path in your market landscape.</p>
+            </div>
+            <div class="service-item">
+                <h3>Conversion-Focused Ads</h3>
+                <p>Ad campaigns engineered with precision to attract, engage, and convert your ideal audience into loyal customers.</p>
+            </div>
+            <div class="service-item">
+                <h3>Analytics Dashboards</h3>
+                <p>Custom data visualization that translates complex metrics into actionable insights for informed decision-making.</p>
+            </div>
+            <div class="service-item">
+                <h3>Brand Development</h3>
+                <p>Craft a magnetic brand identity that resonates with your audience and creates lasting emotional connections.</p>
+            </div>
+            <div class="service-item">
+                <h3>Digital Presence</h3>
+                <p>Build and optimize your online footprint across all relevant platforms where your audience lives and breathes.</p>
+            </div>
+            <div class="service-item">
+                <h3>Growth Consulting</h3>
+                <p>Strategic guidance to identify opportunities, remove barriers, and accelerate your business trajectory.</p>
+            </div>
+        </div>
+        <div class="flow-effect"></div>
+    </section>
+    
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2>WHY NEKO MEGAMI</h2>
+            <p>Because cats don't chase—they attract.</p>
+            <p>Traditional marketing pushes and pursues. We take a different approach. Like the enigmatic nature of cats, we create an irresistible presence that naturally draws your audience to you.</p>
+            <p>Our strategies flow like water—adapting to obstacles, finding the path of least resistance, and ultimately shaping the landscape around them. We combine the focused patience of a feline with the unstoppable force of flowing water.</p>
+            <a href="#contact" class="cta">Start the Conversation</a>
+        </div>
+        <div class="flow-effect"></div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <h2>GET IN TOUCH</h2>
+        <p>Ready to transform your business with strategies that naturally attract success? Let's start a conversation about your vision and goals.</p>
+        <div class="contact-form">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" placeholder="Your Email">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Subject">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </div>
+        <div class="flow-effect"></div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Neko Megami</h3>
+                <p>Business & Marketing Consulting with strategies that attract rather than chase.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">f</a>
+                    <a href="#" class="social-link">in</a>
+                    <a href="#" class="social-link">ig</a>
+                    <a href="#" class="social-link">tw</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#features">Who We Are</a></li>
+                    <li><a href="#services">What We Do</a></li>
+                    <li><a href="#about">Why Neko Megami</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>nekomegamillc@gmail.com</p>
+                <p>+1 (678) 387-7737</p>
+                <p>Atlanta • Miami • London</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Neko Megami LLC. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
